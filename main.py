@@ -44,7 +44,7 @@ def controle():
     # Check if user is loggedin
     if 'loggedin' in session:
         try:
-            cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            cur = mysql.connection.cursor()
             cur.execute('''SELECT * FROM glucose;''')
             data = cur.fetchall()
         except Exception as e:
