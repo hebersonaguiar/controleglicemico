@@ -8,8 +8,8 @@ from json import dumps
 from io import StringIO
 from werkzeug.datastructures import Headers
 from werkzeug.wrappers import Response
-from ldap3 import *
-from ldap3.core.exceptions import LDAPCursorError
+from flask_mysqldb import MySQL
+import MySQLdb.cursors
 
 
 @app.route('/', methods=['GET', 'POST'])

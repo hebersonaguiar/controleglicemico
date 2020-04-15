@@ -9,20 +9,20 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN dpkg-reconfigure -f noninteractive tzdata 
 
+ADD requirements.txt /opt
+RUN pip install -r requirements.txt
+
 WORKDIR /opt
 
 ADD app.py /opt/
 ADD db_config.py /opt/
 ADD main.py /opt/
-ADD requirements.txt /opt
 ADD static /opt/static
 ADD templates /opt/templates
 
 COPY docker-entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh
-
-RUN pip install -r requirements.txt
 
 EXPOSE 5000
 
