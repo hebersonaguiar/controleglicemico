@@ -43,10 +43,34 @@ def login():
 def controle():
     # Check if user is loggedin
     if 'loggedin' in session:
-        # User is loggedin show them the home page
-        return render_template('controle.html', username=session['username'])
+		try:
+			cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+			cur.execute('''SELECT * FROM glucose;''')
+			data = cur.fetchall()	
+
+		except Exception as e:
+			return redirect(url_for('login'))
+		finally:
+			cur.close()
+			return render_template('controle.html', registers=data)
     # User is not loggedin redirect to login page
     return redirect(url_for('login'))
+
+# @app.route('/registros')
+# def registros():
+# 	if g.username:
+# 		try:
+# 			cur = mysql.connection.cursor()
+# 			cur.execute('''SELECT * FROM data_card;''')
+# 			data = cur.fetchall()	
+
+# 		except Exception as e:
+# 			return redirect(url_for('index'))
+# 		finally:
+# 			cur.close()
+# 			return render_template('registros.html', registers=data)
+
+# 	return redirect(url_for('index'))
 
 # CONEXÃO COM O AD
 # def conn():
