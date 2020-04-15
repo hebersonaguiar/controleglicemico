@@ -47,7 +47,7 @@ def controle():
             cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
             cur.execute('''SELECT * FROM glucose;''')
             data = cur.fetchall()
-        except Exception, e:
+        except Exception e:
             return redirect(url_for('login'))
         finally:
             cur.close()
