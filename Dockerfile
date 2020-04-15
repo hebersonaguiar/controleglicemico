@@ -9,10 +9,10 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN dpkg-reconfigure -f noninteractive tzdata 
 
+WORKDIR /opt
+
 ADD requirements.txt /opt
 RUN pip install -r requirements.txt
-
-WORKDIR /opt
 
 ADD app.py /opt/
 ADD db_config.py /opt/
