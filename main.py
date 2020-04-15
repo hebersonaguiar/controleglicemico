@@ -43,16 +43,18 @@ def login():
 def controle():
     # Check if user is loggedin
     if 'loggedin' in session:
-		try:
-			cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-			cur.execute('''SELECT * FROM glucose;''')
-			data = cur.fetchall()
-		except Exception as e:
-			return redirect(url_for('login'))
-		finally:
-			cur.close()
-			return render_template('controle.html', registers=data)
+        try:
+            cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            cur.execute('''SELECT * FROM glucose;''')
+            data = cur.fetchall()
+        except Exception, e:
+            return redirect(url_for('login'))
+        finally:
+            cur.close()
+            return render_template('controle.html', registers=data)
+
     # User is not loggedin redirect to login page
+
     return redirect(url_for('login'))
 
 # @app.route('/registros')
