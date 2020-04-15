@@ -1,5 +1,6 @@
 from app import app
 from flask_mysqldb import MySQL
+import MySQLdb.cursors
 
 # DADOS DE CONEXÃO NA BASE DE CONHECIMENTO
 app.config['MYSQL_HOST'] = 'mysqlhost'
