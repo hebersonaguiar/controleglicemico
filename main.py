@@ -33,7 +33,8 @@ def login():
             session['id'] = account['id']
             session['username'] = account['username']
             # Redirect to home page
-            return 'Logged in successfully!'
+            # return 'Logged in successfully!'
+			return redirect(url_for('controle'))
         else:
             # Account doesnt exist or username/password incorrect
             msg = 'Incorrect username/password!'
