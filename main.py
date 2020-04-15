@@ -32,16 +32,15 @@ def login():
             session['loggedin'] = True
             session['id'] = account['id']
             session['username'] = account['username']
-			return redirect(url_for('controle'))
             # Redirect to home page
-            # return 'Logged in successfully!'
+            return redirect(url_for('controle'))
         else:
             # Account doesnt exist or username/password incorrect
             msg = 'Incorrect username/password!'
     return render_template('index.html', msg='')
 
 @app.route('/controle')
-def home():
+def controle():
     # Check if user is loggedin
     if 'loggedin' in session:
         # User is loggedin show them the home page
