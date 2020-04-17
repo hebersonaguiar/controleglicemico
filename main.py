@@ -57,6 +57,62 @@ def controle():
 
     return redirect(url_for('login'))
 
+@app.route('/insert', methods=['POST'])
+def insert(data, hora, tipo_refeicao, antes_depois, valor, refeicao, peso, observacao):
+    
+    data = str(request.json.get('data', None))
+	hora = str(request.json.get('hora', None))
+    tipo_refeicao = str(request.json.get('tipo_refeicao', None))
+	antes_depois = str(request.json.get('antes_depois', None))
+    valor = str(request.json.get('valor', None))
+	refeicao = str(request.json.get('refeicao', None))
+    peso = str(request.json.get('peso', None))
+    observacao = str(request.json.get('observacao', None))
+
+	try:
+		cur = mysql.connection.cursor()
+		cur.execute("INSERT INTO glucose (data, hora, tipo_refeicao, antes_depois, glicemia, refeicao, peso, observacao) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)", (data, hora, tipo_refeicao, antes_depois, valor, refeicao, peso, observacao))
+		mysql.connection.commit()
+
+		#return jsonify({'login': login}), 200
+		return 'Usuario Inserido'
+
+	except Exception as e:
+		return 'Error'
+	finally:
+		cur.close()
+
+@app.route('/delete/<string:id_data>', methods=['POST', 'GET'])
+def delete(id_data):
+
+	try:
+
+		cur = mysql.connection.cursor()
+		cur.execute("SELECT id FROM glucose WHERE id = {}".format(id_data))
+		data = cur.fetchone()
+		cur.execute("DELETE FROM glucose WHERE id = {}".format(id_data))
+		mysql.connection.commit()
+
+		# data_s = str(data)
+		# chars = ")(,'"
+
+		# for char in chars:
+		# 	data_s = data_s.replace(char, "")
+
+		# connect.search('dc={},dc={},dc={}'.format(domain[0], domain[1], domain[2]), '(sAMAccountName={})'.format(data_s), attributes = [ 'distinguishedName' ], search_scope=SUBTREE )
+		# distinguishedNameObj  = connect.entries[0].distinguishedName.value
+		# distinguishedName = str(distinguishedNameObj)
+
+		# notSet = '<not set>'
+
+		# connect.modify(distinguishedName, {'extensionAttribute15':  [(MODIFY_REPLACE, [str(notSet)])]})
+
+		return redirect(url_for('usuarios'))
+	except Exception as e:
+		return jsonify(e), 400
+	finally:
+		cur.close()
+
 # @app.route('/registros')
 # def registros():
 # 	if g.username:
