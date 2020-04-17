@@ -61,11 +61,11 @@ def controle():
 def insert(data, hora, tipo_refeicao, antes_depois, valor, refeicao, peso, observacao):
     
     data = str(request.json.get('data', None))
-	hora = str(request.json.get('hora', None))
+    hora = str(request.json.get('hora', None))
     tipo_refeicao = str(request.json.get('tipo_refeicao', None))
-	antes_depois = str(request.json.get('antes_depois', None))
+    antes_depois = str(request.json.get('antes_depois', None))
     valor = str(request.json.get('valor', None))
-	refeicao = str(request.json.get('refeicao', None))
+    refeicao = str(request.json.get('refeicao', None))
     peso = str(request.json.get('peso', None))
     observacao = str(request.json.get('observacao', None))
 
