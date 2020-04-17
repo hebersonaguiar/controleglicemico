@@ -60,14 +60,14 @@ def controle():
 @app.route('/insert', methods=['POST'])
 def insert():
     
-    data = request.form['data']
-    hora = request.form['hora']
-    tipo_refeicao = request.form['tipo_refeicao']
-    antes_depois = request.form['antes_depois']
-    valor = request.form['valor']
-    refeicao = request.form['refeicao']
-    peso = request.form['peso']
-    observacao = request.form['observacao']
+    data = str(request.form['data'])
+    hora = str(request.form['hora'])
+    tipo_refeicao = str(request.form['tipo_refeicao'])
+    antes_depois = str(request.form['antes_depois'])
+    valor = str(request.form['valor'])
+    refeicao = str(request.form['refeicao'])
+    peso = str(request.form['peso'])
+    observacao = str(request.form['observacao'])
 
     try:
         cur = mysql.connection.cursor()
