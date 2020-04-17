@@ -60,8 +60,10 @@ def controle():
 @app.route('/insert', methods=['POST'])
 def insert():
     
-    data = str(request.form['data'])
-    hora = str(request.form['hora'])
+    # data = str(request.form['data'])
+    data = now.strftime("%Y-%m-%d")
+    # hora = str(request.form['hora'])
+    hora = now.strftime("%H.%M.%S")
     tipo_refeicao = str(request.form['tipo_refeicao'])
     antes_depois = str(request.form['antes_depois'])
     valor = str(request.form['valor'])
