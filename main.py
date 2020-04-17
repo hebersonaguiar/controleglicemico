@@ -69,18 +69,17 @@ def insert(data, hora, tipo_refeicao, antes_depois, valor, refeicao, peso, obser
     peso = str(request.json.get('peso', None))
     observacao = str(request.json.get('observacao', None))
 
-	try:
-		cur = mysql.connection.cursor()
-		cur.execute("INSERT INTO glucose (data, hora, tipo_refeicao, antes_depois, glicemia, refeicao, peso, observacao) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)", (data, hora, tipo_refeicao, antes_depois, valor, refeicao, peso, observacao))
-		mysql.connection.commit()
-
-		#return jsonify({'login': login}), 200
-		return 'Usuario Inserido'
-
-	except Exception as e:
-		return 'Error'
-	finally:
-		cur.close()
+    try:
+        cur = mysql.connection.cursor()
+        cur.execute("INSERT INTO glucose (data, hora, tipo_refeicao, antes_depois, glicemia, refeicao, peso, observacao) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)", (data, hora, tipo_refeicao, antes_depois, valor, refeicao, peso, observacao))
+        mysql.connection.commit()
+        
+        return 'Usuario Inserido'
+    
+    except Exception as e:
+        return 'Error'
+    finally:
+        cur.close()
 
 @app.route('/delete/<string:id_data>', methods=['POST', 'GET'])
 def delete(id_data):
