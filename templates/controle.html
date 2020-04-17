@@ -61,7 +61,6 @@
                            <td>{{row.7}}</td>
                            <td>{{row.8}}</td>
                            <td>
-                              <a href="" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#insert-modal">Inserir</a>
                               <a style="text-decoration: none;" href="/delete/{{row.0}}" class="btn btn-danger btn-xs" onclick="return confirm('Deseja deletar?')">Delete</a>
                            </td>
                         </tr>
@@ -84,7 +83,7 @@
                   </table>
                   <a style="float: left;"  href="/download" class="btn btn-success btn-xs">Exportar em CSV</a> 
                   <h5 style="float: right; font-weight: bold; margin-right: 15px;">
-                  Registros realizados : {{ registers|length }}</h5>
+                  Registros realizados : {{ registers|length }}</h5><a href="" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#insert-modal">Inserir</a>
                </div>
             </div>
          </div>
