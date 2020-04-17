@@ -44,6 +44,7 @@
                            <th>Valor</th>
                            <th>Refeicao</th>
                            <th>Observacao</th>
+                           <th>Action</th>
                         </tr>
                      </thead>
                      <tbody>
@@ -57,6 +58,10 @@
                            <td>{{row.5}}</td>
                            <td>{{row.6}}</td>
                            <td>{{row.7}}</td>
+                           <td>
+                              <a href="" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#edit-modal">Edit</a>
+                              <a style="text-decoration: none;" href="/delete/{{row.0}}" class="btn btn-danger btn-xs" onclick="return confirm('Deseja deletar?')">Delete</a>
+                           </td>
                         </tr>
                         {%endfor%}
                      </tbody>
@@ -70,6 +75,7 @@
                            <th>Valor</th>
                            <th>Refeicao</th>
                            <th>Observacao</th>
+                           <th>Action</th>
                         </tr>
                      </tfoot>
                   </table>
