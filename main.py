@@ -59,7 +59,8 @@ def controle():
 
 @app.route('/insert', methods=['POST'])
 def insert():
-    
+
+    now = datetime.datetime.now()   
     # data = str(request.form['data'])
     data = now.strftime("%Y-%m-%d")
     # hora = str(request.form['hora'])
