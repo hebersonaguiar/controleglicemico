@@ -103,16 +103,16 @@
                <form method="POST" action="/insert">
                  <div class="form-group">
                    <label for="data" class="col-form-label">Data:</label>
-                   <input type="text" class="form-control" id="data">
+                   <input type="text" class="form-control" id="data" name="data" required>
                  </div>
                  <div class="form-group">
                    <label for="hora" class="col-form-label">Hora:</label>
-                   <input type="text" class="form-control" id="hora">
+                   <input type="text" class="form-control" id="hora" name="hora" required>
                  </div>
                  <div class="form-group">
                    <label for="tipo_refeicao" class="col-form-label">Tipo Refeição:</label>
                    <!-- <input type="text" class="form-control" id="tipo_refeicao" required> -->
-                   <select class="form-control" id="tipo_refeicao" required>
+                   <select class="form-control" id="tipo_refeicao" name="tipo_refeicao" required>
                      <option value="Café da Manhã">Café da Manhã</option>
                      <option value="Lanche da Manhã">Lanche da Manhã</option>
                      <option value="Almoço">Almoço</option>
@@ -124,26 +124,26 @@
                  <div class="form-group">
                    <label for="antes_depois" class="col-form-label">Antes/Depois da Refeição:</label>
                    <!-- <input type="text" class="form-control" id="antes_depois" required> -->
-                   <select class="form-control" id="antes_depois" required>
+                   <select class="form-control" id="antes_depois" name="antes_depois" required>
                      <option value="Antes">Antes</option>
                      <option value="Depois">Depois</option>
                    </select>
                  </div>
                  <div class="form-group">
                    <label for="valor" class="col-form-label">Valor:</label>
-                   <input type="text" class="form-control" id="valor" required>
+                   <input type="text" class="form-control" id="valor" name="valor" required>
                  </div>
                  <div class="form-group">
                    <label for="refeicao" class="col-form-label">Refeição:</label>
-                   <input type="text" class="form-control" id="refeicao" required>
+                   <input type="text" class="form-control" id="refeicao" name="refeicao" required>
                  </div>
                  <div class="form-group">
                    <label for="peso" class="col-form-label">Peso:</label>
-                   <input type="text" class="form-control" id="peso">
+                   <input type="text" class="form-control" id="peso" name="peso">
                  </div>
                  <div class="form-group">
                    <label for="observacao" class="col-form-label">Observação:</label>
-                   <textarea class="form-control" id="observacao"></textarea>
+                   <textarea class="form-control" id="observacao" name="observacao"></textarea>
                  </div>
                  <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
