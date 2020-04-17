@@ -74,16 +74,16 @@ def insert():
     peso = request.form.get('peso')
     observacao = request.form.get('observacao')
 
-    # try:
-    cur = mysql.connection.cursor()
-    cur.execute("INSERT INTO glucose (data, hora, tipo_refeicao, antes_depois, glicemia, refeicao, peso, observacao) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)", (data, hora, tipo_refeicao, antes_depois, valor, refeicao, peso, observacao))
-    mysql.connection.commit()
+    try:
+        cur = mysql.connection.cursor()
+        cur.execute("INSERT INTO glucose (data, hora, tipo_refeicao, antes_depois, glicemia, refeicao, peso, observacao) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)", (data, hora, tipo_refeicao, antes_depois, valor, refeicao, peso, observacao))
+        mysql.connection.commit()
     
-    # except Exception as e:
-        # return e
-    # finally:
-        # cur.close()
-    return redirect(url_for('controle'))
+    except Exception as e:
+        return e
+    finally:
+        cur.close()
+        return redirect(url_for('controle'))
 
 @app.route('/delete/<string:id_data>', methods=['POST', 'GET'])
 def delete(id_data):
@@ -110,7 +110,7 @@ def delete(id_data):
 
 		# connect.modify(distinguishedName, {'extensionAttribute15':  [(MODIFY_REPLACE, [str(notSet)])]})
 
-		return redirect(url_for('usuarios'))
+		return redirect(url_for('controle'))
 	except Exception as e:
 		return jsonify(e), 400
 	finally:
