@@ -65,12 +65,12 @@ def insert():
     data = now.strftime("%Y-%m-%d")
     # hora = str(request.form['hora'])
     hora = now.strftime("%H.%M.%S")
-    tipo_refeicao = str(request.form['tipo_refeicao'])
-    antes_depois = str(request.form['antes_depois'])
-    valor = str(request.form['valor'])
-    refeicao = str(request.form['refeicao'])
-    peso = str(request.form['peso'])
-    observacao = str(request.form['observacao'])
+    tipo_refeicao = request.form.get('tipo_refeicao')
+    antes_depois = request.form.get('antes_depois')
+    valor = request.form.get('valor')
+    refeicao = request.form.get('refeicao')
+    peso = request.form.get('peso')
+    observacao = request.form.get('observacao')
 
     try:
         cur = mysql.connection.cursor()
