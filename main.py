@@ -79,7 +79,7 @@ def insert():
         cur.execute("INSERT INTO glucose (data, hora, tipo_refeicao, antes_depois, glicemia, refeicao, peso, observacao) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)", (data, hora, tipo_refeicao, antes_depois, valor, refeicao, peso, observacao))
         mysql.connection.commit()
         
-        return redirect(url_for('crontrole'))
+        return 'inserido com sucesso'
     
     except Exception as e:
         return e
