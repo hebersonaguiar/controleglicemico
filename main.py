@@ -60,11 +60,13 @@ def controle():
 @app.route('/insert', methods=['POST'])
 def insert():
 
-    now = datetime.datetime.now()   
+    # now = datetime.datetime.now()
     # data = str(request.form['data'])
-    data = now.strftime("%Y-%m-%d")
+    # data = now.strftime("%Y-%m-%d")
     # hora = str(request.form['hora'])
-    hora = now.strftime("%H.%M.%S")
+    # hora = now.strftime("%H.%M.%S")
+    data = request.form.get('data')
+    hora = request.form.get('hora')
     tipo_refeicao = request.form.get('tipo_refeicao')
     antes_depois = request.form.get('antes_depois')
     valor = request.form.get('valor')
@@ -80,7 +82,7 @@ def insert():
         return 'Usuario Inserido'
     
     except Exception as e:
-        return 'Error'
+        return e
     finally:
         cur.close()
 
