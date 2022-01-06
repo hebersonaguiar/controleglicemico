@@ -1,7 +1,7 @@
 amqp==2.4.2          
 aniso8601==4.1.0     
 billiard==3.5.0.5    
-celery==4.2.2        
+celery==5.2.2        
 Click==7.0           
 Flask==1.0.2         
 Flask-Celery==2.4.3  
